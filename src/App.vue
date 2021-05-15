@@ -8,7 +8,15 @@
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  created () {
+    document.body.style.backgroundColor = '#121212';
+  }
+}
+</script>
+
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
