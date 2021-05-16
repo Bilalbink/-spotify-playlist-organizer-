@@ -2,7 +2,7 @@
   <div>
     <UserDetails  v-bind:user="user" v-bind:playlistSize="playlists.length"/>
     <PlaylistScroll @select-playlist="selectPlaylist" v-bind:playlists="playlists"/>
-    <PlaylistTable v-bind:songs="songs"/>
+    <PlaylistTable v-bind:songs="songs" v-bind:genres="genres"/>
   </div>
 </template>
 
@@ -24,12 +24,13 @@ export default {
       playlists: [],
       user: null,
       songs: [],
-      genre: [],
+      genres: [],
     }
   },
   methods: {
     selectPlaylist(playlist) {
       this.songs = [];
+      this.genres = [];
       const headers = 
         {
             "Content-Type": "application/json" ,
@@ -41,7 +42,6 @@ export default {
               let data = response.data.items;
               let newSongs = this.songs.concat(data);
               this.songs = newSongs;
-              // console.log(this.songs);
 
               let artistIds = [];
               response.data.items.forEach(item => {
@@ -49,12 +49,12 @@ export default {
               });
               
               if (artistIds.length < 50) {
-                    getGenre(artistIds);
-                }
-                else {
-                    getGenre(artistIds.slice(0, 50));
-                    getGenre(artistIds.slice(50, 100));
-                }
+                this.getGenre(artistIds);
+              }
+              else {
+                this.getGenre(artistIds.slice(0, 50));
+                this.getGenre(artistIds.slice(50, 100));
+              }
           })
           .catch(function (error) {
               console.log(error);
@@ -62,15 +62,21 @@ export default {
       }
     },
     getGenre(artistIds) {
+      artistIds = encodeURIComponent(artistIds.toString());
       const headers = 
       {
           "Content-Type": "application/json" ,
           "Authorization": "Bearer" + " " + localStorage.ACCESS_TOKEN 
       };
-      axios.get("	https://api.spotify.com/v1/artists?ids=", {headers})
+      axios.get("	https://api.spotify.com/v1/artists?ids=" + artistIds, {headers})
         .then((response) =>  {
-            let data = response.data;
-            this.user = data;
+            let data = response.data.artists;
+            let genresList = [];
+            console.log(data);
+            data.forEach(artist => {
+              genresList.push(artist.genres);
+            })
+            this.genres = this.genres.concat(genresList);
         })
         .catch(function (error) {
             console.log(error);
@@ -93,7 +99,6 @@ export default {
       });
     axios.get("https://api.spotify.com/v1/me/playlists", {headers})
       .then((response) =>  {
-        console.log(response.data.items[0].owner.display_name);
           let data = response.data.items.filter(song => song.owner.display_name === this.user.display_name);
           this.playlists = data;
       })

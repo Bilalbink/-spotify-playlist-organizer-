@@ -3,14 +3,14 @@
     <b-container>
       <b-row align-v="center">
         <b-col md="auto">
-          <img v-bind:src="user.images[0].url" alt="Profile Image">
+          <img v-if="user" v-bind:src="user.images[0].url" alt="Profile Image">
         </b-col>
         <b-col md="auto" id="desc">
-          <b-row id='username'>
+          <b-row v-if="user" id='username'>
               {{user.display_name}}
           </b-row>
           <b-row id='playlistDetails'>
-              Playlists: 5
+              Total Playlists: {{playlistSize}}
           </b-row >
         </b-col>
       </b-row>
@@ -22,26 +22,10 @@
 import axios from 'axios'
 export default {
     name: "UserDetails",
-    data() {
-        return {
-            user: null
-        }
+    props: {
+      user: Object,
+      playlistSize: Number,
     },
-    created() {
-        const headers = 
-            {
-                "Content-Type": "application/json" ,
-                "Authorization": "Bearer" + " " + localStorage.ACCESS_TOKEN 
-            };
-        axios.get("https://api.spotify.com/v1/me", {headers})
-            .then((response) =>  {
-                let data = response.data;
-                this.user = data;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
 }
 </script>
 
@@ -69,7 +53,7 @@ export default {
   #playlistDetails {
     color: white;
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 700;
     padding-left: 5px;
   }
 
