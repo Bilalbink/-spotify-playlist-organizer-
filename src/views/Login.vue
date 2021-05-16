@@ -1,17 +1,17 @@
 <template>
   <div>
     <b-container class="bv-example-row">
-  <b-row>
-    <b-col>
-      <b-form-input v-model="clientId" placeholder="Enter Client ID"></b-form-input>
-    </b-col>
-  </b-row>
-  <b-row>
-    <b-col>
-      <b-button @click="submit" variant="success">Enter</b-button>
-    </b-col>
-  </b-row>
-</b-container>
+      <b-row>
+        <b-col>
+          <b-form-input v-model="clientId" placeholder="Enter Client ID"></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <b-button @click="submit" variant="success">Enter</b-button>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 // @ is an alias to /src
 
 export default {
-  name: "Home",
+  name: "Login",
   data () {
     return {
       clientId: ''

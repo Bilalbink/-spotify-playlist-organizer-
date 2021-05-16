@@ -12,7 +12,7 @@
 export default {
   created () {
     document.body.style.backgroundColor = '#121212';
-  }
+  },
 }
 </script>
 
