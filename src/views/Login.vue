@@ -29,7 +29,7 @@
              Log in to your Spotify account to start!
            </b-row>
           <b-row align-h="center" >
-            <b-button @click="submit" class="button-login">Enter</b-button>
+            <b-button @click="submit" class="button-login">Log In</b-button>
           </b-row>
       </b-container>
     </div>
