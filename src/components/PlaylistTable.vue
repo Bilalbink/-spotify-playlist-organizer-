@@ -16,7 +16,7 @@
                     <b-td>{{song.track.name}}</b-td>
                     <b-td>{{song.track.artists.map(artist => {return artist.name;}).join(", ")}}</b-td>
                     <b-td>{{song.track.album.name}}</b-td>
-                    <b-td v-if="genres">{{genres[index].map(genre => {return genre;}).join(", ")}}</b-td>
+                    <b-td>{{song.track.genres.map(genre => {return genre;}).join(", ")}}</b-td>
                 </b-tr>.
             </b-tbody>
     </b-table-simple>
@@ -29,6 +29,14 @@ export default {
     props: {
         songs: Array,
         genres: Array,
+    },
+    data() {
+        return {
+            
+        }
+    },
+    methods: {
+      
     }
 }
 </script>

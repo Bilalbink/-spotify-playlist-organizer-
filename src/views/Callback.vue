@@ -14,8 +14,8 @@ export default {
             res[parts[0]] = parts[1];
             return res;
         }, {});
+        console.log(result);
         localStorage.ACCESS_TOKEN = result['#access_token'];
-// window.location.replace('http://www.google.com')
         this.$router.replace({path: '/playlist'});
     }
 }

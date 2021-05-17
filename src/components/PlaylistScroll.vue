@@ -5,7 +5,8 @@
             <vue-horizontal-list :items="playlists" :options="options">
                 <template v-slot:default="{ item }">
                     <div @click="$emit('select-playlist', item)" class="item">
-                        <img class="playlist-image" v-bind:src="item.images[0].url" alt="Profile Image">
+                        <img v-if="item.images.length !== 0" class="playlist-image" v-bind:src="item.images[0].url" alt="Profile Image">
+                        <img v-else class="playlist-image" src="@/assets/defaultcover.jpg" alt="Profile Image">
                         <p>{{ item.name }}</p>
                     </div>
                 </template>
