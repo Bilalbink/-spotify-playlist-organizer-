@@ -2,7 +2,7 @@
     <div class="body">
       <b-container >
         <b-navbar toggleable="md" >
-          <b-navbar-brand class="logo" href="#">
+          <b-navbar-brand class="logo" href="/">
             SPO
             <b-icon-music-note-beamed class="music-icon-top"></b-icon-music-note-beamed>
           </b-navbar-brand>

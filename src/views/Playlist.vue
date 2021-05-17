@@ -1,5 +1,22 @@
 <template>
   <div>
+    <b-navbar toggleable="md" variant="success" >
+      <b-navbar-brand class="logo" href="/">
+        SPO
+        <b-icon-music-note-beamed class="music-icon-top"></b-icon-music-note-beamed>
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ml-auto">
+              <b-nav-item href="https://github.com/Bilalbink" active>
+                  <b-row align-h="center">
+                      <b-icon-github class="github-icon"></b-icon-github>
+                      <div class="github-name">Bilalbink</div>
+                  </b-row>
+              </b-nav-item>
+          </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
     <UserDetails  v-bind:user="user" v-bind:playlistSize="playlists.length"/>
     <CreatePlaylistModal v-bind:toggleModal="toggleModal" @toggle-modal="togglePlaylistModal" @create-playlist="createPlaylist"/>
     <PlaylistScroll @select-playlist="selectPlaylist" v-bind:playlists="playlists"/>
@@ -217,5 +234,25 @@ export default {
     border-color: inherit !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+  }
+  .logo {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  }
+  .nav-container {
+    max-width: 1080px;
+  }
+  .github-icon{
+    color: white;
+    width: 25px;
+    height: 25px;
+  }
+  .github-name {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin-left: 10px;
+    padding-top: 2px;
   }
 </style>
