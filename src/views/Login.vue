@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     submit() {
-      let redirect_uri = encodeURIComponent('https://spo.vercel.app/playlist/callback/');
+      let redirect_uri = encodeURIComponent('https://spo.vercel.app/callback/');
       let scopes = encodeURIComponent('playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-library-modify');
       window.location.replace('https://accounts.spotify.com/authorize?' + 
         'client_id=' + '6650d8efd20648c68a8d6f22dc1ac7b0' + 
