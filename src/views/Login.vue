@@ -1,7 +1,7 @@
 <template>
     <div class="body">
       <b-container >
-        <b-navbar toggleable="md" >
+        <b-navbar toggleable="md" type="dark">
           <b-navbar-brand class="logo" href="/">
             SPO
             <b-icon-music-note-beamed class="music-icon-top"></b-icon-music-note-beamed>
@@ -122,9 +122,9 @@ export default {
   margin-top: 25px;
 }
 .button-login {
-  margin-right: 15px;
+  /* margin-right: 15px; */
   border-radius: 25px;
-  min-width: 15%;
+  min-width: 150px;
   height: 50px;
   outline: none;
   border: none;
@@ -134,5 +134,11 @@ export default {
   font-weight: 700;
   font-size: 20px;
   margin-top: 25px;
+}
+
+ ::v-deep .navbar-toggler-icon {
+    border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
 }
 </style>
