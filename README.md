@@ -1,24 +1,13 @@
 # spotify-playlist-organizer
 
-## Project setup
+Web application that extracts songs from a Spotify playlist and creates new playlists using them according to their genres.
+Available on: https://spo.vercel.app/
+
+## How to use
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
