@@ -109,7 +109,6 @@ export default {
             this.genres = this.genres.concat(genresList);
             this.songs = this.songs.concat(songList).sort(this.compareDateAdded);
             this.prevSongs = [...this.songs];
-            // console.log(JSON.stringify(this.genres))
         })
         .catch(function (error) {
             console.log(error);
@@ -168,7 +167,6 @@ export default {
         };
       axios.post("https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?uris=" + songUriList, null, {headers})
       .then((response) =>  {
-          console.log(response);
 
       })
       .catch(function (error) {
@@ -194,7 +192,6 @@ export default {
       .then((response) =>  {
           let data = response.data.items.filter(song => song.owner.display_name === this.user.display_name);
           this.playlists = data;
-          console.log(data);
       })
       .catch(function (error) {
           console.log(error);
