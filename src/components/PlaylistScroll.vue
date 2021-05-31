@@ -28,7 +28,11 @@ export default {
     },
     data() {
         return {
-            options: {},
+            options: {
+                position: {
+                    start: 0,
+                },
+            },
         }
     },
 }

@@ -190,7 +190,8 @@ export default {
       });
     axios.get("https://api.spotify.com/v1/me/playlists", {headers})
       .then((response) =>  {
-          let data = response.data.items.filter(song => song.owner.display_name === this.user.display_name);
+          console.log(response);
+          let data = response.data.items
           this.playlists = data;
       })
       .catch(function (error) {
